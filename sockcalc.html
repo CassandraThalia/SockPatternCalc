@@ -1,0 +1,95 @@
+<!--
+
+enter number of cuff stitches from list
+
+choose st pattern: pre-set options or enter your own
+
+if divisible by 4, prompt for pattern of 4 or 8 sts 
+if divisible by 8, prompt for patter of 8 sts
+    also need to ask for & accomodate # of rows in st pattern
+
+ask for short, med, or long leg 
+
+output cuff & leg pattern & recomended inches
+
+heel - hald of main sts, can put in own function?
+    eventually, choice of heel styles
+
+rounded heel
+    total sts/4 + 2 & 1sl
+
+foot(half in pattern, half not) to desired inches
+
+toe
+
+-->
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <!--
+      Fitting Allowance Calculator Program
+
+      Author: Cassandra Curtis
+      Date:   Nov 19, 2020
+
+      Filename:   index.html
+   -->
+   <meta charset="utf-8" />
+   <meta name="viewport" content="width=device-width, initial-scale=1" />
+   <title>Sock Pattern Builder</title>
+   <link href="reset.css" rel="stylesheet" />
+</head>
+
+<script src="sockcalc.js"></script> 
+
+<h1>Sock Pattern Builder</h1>
+
+<h2>Step One</h2>
+
+<div class = "dropDown">
+    <form></form>
+        Number of stitches to cast on:
+        <select class = "sel" id="numOfStsSelect">
+            <option value="" disabled selected hidden>Select...</option>
+            <option value="56">56</option>
+            <option value="60">60</option>
+            <option value="64">64</option>
+            <option value="68">68</option>
+        </select>
+    </form>
+
+    <form>
+        Cuff Pattern:
+        <select class = "sel" id="cuffPatternSelect">
+            <option value="" disabled selected hidden>Select...</option>
+            <option value="dbRibCuff">Double-Rib</option>
+            <option value="sngRibCuff">Single-Rib</option>
+        </select>    
+    </form>
+   
+    <form>
+        Stitch pattern:
+        <select class = "sel" id="stPatternSelect">
+            <option value="" disabled selected hidden>Select...</option>
+            <!-- <option value="rightTwist">Right Twist</option>
+            <option value="seed">Seed Stitch</option>
+            <option value="waffel">Waffel Stitch</option> -->
+            <option value="dbRib">Double-Rib</option>
+            <option value="sngRib">Single-Rib</option>
+        </select>
+    </form>
+
+</div>
+
+<button id="patButton" type="button" onclick="buildSockPattern()">Build Sock Pattern</button>
+
+<h3 id = castOnOutput></h3>
+
+<h3 id = "cuffTitleOutput">Cuff Pattern</h3>
+    <p id = "cuffPatternOutput"></p>
+    <p id = "patternRepeatOutput"></p>
+
+<h3 id = "letTitleOutput">Leg Pattern</h3>
+    <p id = "legPatternOutput"></p>
