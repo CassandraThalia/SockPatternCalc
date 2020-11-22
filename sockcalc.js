@@ -1,3 +1,4 @@
+// Pre-set pattern functions
 // function rightTwistSt()
 // {
 //     return "Row One</b>:&nbsp;*rt, k2* repeat to end<br><b>Row Two:</b>&nbsp;k to end<br><b>Row Three:</b>&nbsp;k to end<br><b>Row Four:</b>&nbsp;k to end";
@@ -13,18 +14,6 @@
 //     return "<b>Row One:</b>&nbsp;*k2, p2* repeat to end<br><b>Row Two:</b>&nbsp;k to end";
 // }
 
-function castOnMessage()
-{
-    var numOfStitches = document.getElementById("numOfStsSelect").value;
-    document.getElementById("castOnOutput").innerHTML = "Cast on " + numOfStitches + " using long-tail cast-on";
-}
-
-function rowMessage(rowNum, rowPat, numStInPtn) 
-{
-    var numOfStitches = document.getElementById("numOfStsSelect").value;
-    return "Row " + rowNum + ":</b>&nbsp;*" + rowPat + "*, repeat from * to * " + ((numOfStitches / numStInPtn) - numStInPtn) + " times";
-}
-
 function doubleRibSt()
 {
     var totalSts = 4
@@ -39,9 +28,24 @@ function singleRibSt()
     return patternOutput;
 }
 
+// Message output functions
+function rowMessage(rowNum, rowPat, numStInPtn) 
+{
+    var numOfStitches = document.getElementById("numOfStsSelect").value;
+    return "Row " + rowNum + ":</b>&nbsp;*" + rowPat + "*, repeat from * to * " + ((numOfStitches / numStInPtn) - numStInPtn) + " times";
+}
+
 function repeatMessage(untilCondition)
 {
     return "Repeat pattern row(s) until " + untilCondition;
+}
+
+// Build pattern functions
+
+function buildCastOnMessage()
+{
+    var numOfStitches = document.getElementById("numOfStsSelect").value;
+    document.getElementById("castOnOutput").innerHTML = "Cast on " + numOfStitches + " using long-tail cast-on";
 }
 
 function buildCuffPattern()
@@ -71,19 +75,16 @@ function buildLegPattern()
     }
 }
 
-function heelStCalc()
+function buildHeelPattern()
 {
     var numOfStitches = document.getElementById("numOfStsSelect").value;
-    document.getElementById("heelStCalc").innerHTML = "Set-up row: k" + (numOfStitches / 2) + " stitches, turn";
-}
-
-function heelRowCalc()
-{
-    var numOfStitches = document.getElementById("numOfStsSelect").value;
+    document.getElementById("heelStCalc").innerHTML = "Set-up row: k" + (numOfStitches / 2) + " stitches, turn</p>\
+        <p>Row One: slip 1 st wyif, k1, *sl1, k1*, repeat from * to *, turn</p>\
+        <p>Row Two: slip 1 st wyif, p to end of row, turn</p>";
     document.getElementById("heelRowCalc").innerHTML = "Repeat rows 1 & 2 until heel measures " + (numOfStitches / 2) + " rows total";
 }
 
-function heelTurnPattern()
+function buildheelTurnPattern()
 {
     var numOfStitches = document.getElementById("numOfStsSelect").value;
     document.getElementById("heelTurn").innerHTML = "<p>Row One: slip 1 st wyif, k" + ((numOfStitches / 4) + 2) + ", ssk, k1, turn</p>\
@@ -133,12 +134,17 @@ function toePattern()
 
 function buildSockPattern()
 {
-    castOnMessage();
+    buildCastOnMessage();
     buildCuffPattern();
     buildLegPattern();
-    heelStCalc();
-    heelRowCalc();
-    heelTurnPattern();
+    buildHeelPattern();
+    buildheelTurnPattern();
     instepPattern();
     toePattern();
 }
+
+function buildAndShowPattern() {
+    buildSockPattern();
+    document.getElementById("pattern").style.display = "block";
+  }
+
