@@ -40,7 +40,7 @@ toe
    <meta name="viewport" content="width=device-width, initial-scale=1" />
    <title>Sock Pattern Builder</title>
    <link href="reset.css" rel="stylesheet" />
-   <link href="sockcalc.css" rel="stylesheet" />
+   <link href="sock_styles.css" rel="stylesheet" />
 </head>
 
 <script src="sockcalc.js"></script> 
@@ -50,8 +50,8 @@ toe
 <h2>Options:</h2>
 
 <div class = "dropDown">
-    <form></form>
-        Number of stitches to cast on:
+    <form>
+        Number cast-on stitches:
         <select class = "sel" id="numOfStsSelect">
             <option value="" disabled selected hidden>Select...</option>
             <option value="56">56</option>
@@ -93,22 +93,20 @@ toe
     </div>
 
     <div id="cuff">
-        <h3>Cuff</h3>
+        <br><h3>Cuff</h3>
             <p id = "cuffPatternOutput"></p>
     </div>
 
     <div id="leg">
-        <h3>Leg</h3>
+        <br><h3>Leg</h3>
             <p id = "legPatternOutput"></p>
     </div>
 
 
     <div id="heel">
-        <h3>Heel</h3>
+        <br><h3>Heel</h3>
             <h4>Heel  Flap</h4>
             <p id="heelStCalc"></p>
-            <p>Row One: slip 1 st wyif, k1, *sl1, k1*, repeat from * to *, turn</p>
-            <p>Row Two: slip 1 st wyif, p to end of row, turn</p>
             <p id="heelRowCalc"></p>
 
             <h4>Heel Turn</h4>
@@ -116,22 +114,22 @@ toe
     </div>
 
     <div id="instep">
-        <h3>Instep</h3>
+        <br><h3>Instep</h3>
             <p id="instepOutput"></p>
     </div>
 
     <div id="foot">
-        <h3>Foot</h3>
+        <br><h3>Foot</h3>
             <p>Continue to knit half your stitches in pattern, half in knit, until your foot measures 1.5 inches less than your desired total length</p>
     </div>
 
     <div id="toe">
-        <h3>Toe</h3>
+        <br><h3>Toe</h3>
             <p id="toePatOutput"></p>
     </div>
 
     <div id="castOff">
-        <h4>Cast off using the Kitchner Stitch</h4>
+        <br><h4>Cast off using the Kitchner Stitch</h4>
     </div>
 
 </div>
