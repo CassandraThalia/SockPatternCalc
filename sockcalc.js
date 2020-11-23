@@ -132,6 +132,13 @@ function toePattern()
         <p><b>Row Nineteen</b>: ssk, k" + ((numOfStitches / 2) - 22) + ", k2tog, ssk, k" + ((numOfStitches / 2) - 22) + ", k2tog</p>";
 }
 
+function generatePDF() {
+    var finishedPattern = document.getElementById("pattern").value;
+    var blob = new Blob([finishedPattern],
+                { type: "text/plain;charset=utf-8" });
+    saveAs(blob, "pattern.txt");
+}
+
 function buildSockPattern()
 {
     buildCastOnMessage();

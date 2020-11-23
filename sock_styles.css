@@ -51,7 +51,7 @@ button:focus {
 
 #pattern{
     display: none;
-    box-shadow: 2px 2px 5px #000000, -2px -2px 5px #000000;
+    box-shadow: 2px 2px 5px gray, -2px -2px 5px gray;
     padding: 10px 30px;
 }
 
@@ -72,6 +72,18 @@ form {
     width: 400px;
     justify-content: space-between;
     padding: .5%;
+}
+
+#welcomeMessage {
+    border-color: black;
+    border-style: solid;
+    border-radius: 5px;
+    font-size: 0.8em;
+    padding: 0.5% 2%;
+}
+
+#PDFSpace {
+    display: inline;
 }
 
 @media only screen and (max-width: 480px) {
