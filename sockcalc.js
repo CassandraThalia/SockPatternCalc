@@ -134,9 +134,9 @@ function toePattern()
 
 function generatePDF() {
     var finishedPattern = document.getElementById("pattern").value;
-    var blob = new Blob([finishedPattern],
+    var blob = new Blob([string(finishedPattern)],
                 { type: "text/plain;charset=utf-8" });
-    saveAs(blob, "pattern.txt");
+    saveAs(blob, "/pattern.txt");
 }
 
 function buildSockPattern()
@@ -154,5 +154,6 @@ function buildAndShowPattern()
 {
     buildSockPattern();
     document.getElementById("pattern").style.display = "block";
+    document.getElementById("PDFButton").style.display = "block";
 }
 
