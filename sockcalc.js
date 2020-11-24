@@ -1,18 +1,24 @@
 // Pre-set pattern functions
-// function rightTwistSt()
-// {
-//     return "<b>Row One</b></b>:&nbsp;*rt, k2* repeat to end<br><b>Row Two:</b>&nbsp;k to end<br><b>Row Three:</b>&nbsp;k to end<br><b>Row Four:</b>&nbsp;k to end";
-// }
+function rightTwistSt()
+{
+    var totalSts = 4
+    var patternOutput = rowMessage("One", "rt, k2", totalSts) + "<p>" + "<b>Row Two</b>: k to end" + "<p>" + "<b>Row Three</b>: k to end" + "<p>" + "<b>Row Four</b>: k to end"
+    return patternOutput;
+}
 
-// function seedSt()
-// {
-//     return "<b><b>Row One</b>:</b>&nbsp;*k1, p1* repeat to end<br><b>Row Two:</b>&nbsp;*p1, k1* repeat to end";
-// }
+function seedSt()
+{
+    var totalSts = 2
+    var patternOutput = rowMessage("One", "k1, p1", totalSts) + "<p>" + rowMessage("One", "p1, k1", totalSts)
+    return patternOutput;
+}
 
-// function waffelSt()
-// {
-//     return "<b><b>Row One</b>:</b>&nbsp;*k2, p2* repeat to end<br><b>Row Two:</b>&nbsp;k to end";
-// }
+function waffelSt()
+{
+    var totalSts = 4
+    var patternOutput = rowMessage("One", "k2, p2", totalSts) + "<p>" + "<b>Row Two</b>: k to end"
+    return patternOutput
+}
 
 function doubleRibSt()
 {
@@ -62,6 +68,20 @@ function buildCuffPattern()
     }
 }
 
+function showPreSetSts(){
+    document.getElementById("dropDown").style.display = "block";
+}
+
+function hideButtons(){
+    document.getElementById("chooseSetPatID").style.display = "none";
+    document.getElementById("chooseOwnPatID").style.display = "none";
+}
+
+function showAndHide() {
+    showPreSetSts();
+    hideButtons();
+}
+
 function buildLegPattern()
 {
     var legPattern = document.getElementById("stPatternSelect").value;
@@ -72,6 +92,18 @@ function buildLegPattern()
     else if (legPattern == "sngRib")
     {
         document.getElementById("legPatternOutput").innerHTML = singleRibSt() + "<p>" + repeatMessage("leg is desired length (around 7 inches is standard)");
+    }
+    else if (legPattern == "waffel")
+    {
+        document.getElementById("legPatternOutput").innerHTML = waffelSt() + "<p>" + repeatMessage("leg is desired length (around 7 inches is standard)")
+    }
+    else if (legPattern == "seed")
+    {
+        document.getElementById("legPatternOutput").innerHTML = seedSt() + "<p>" + repeatMessage("leg is desired length (around 7 inches is standard)")  
+    }
+    else if (legPattern == "rightTwist")
+    {
+        document.getElementById("legPatternOutput").innerHTML = rightTwistSt() + "<p>" + repeatMessage("leg is desired length (around 7 inches is standard)")
     }
 }
 
