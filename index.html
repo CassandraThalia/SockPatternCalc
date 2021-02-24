@@ -1,30 +1,3 @@
-<!--
-
-enter number of cuff stitches from list
-
-choose st pattern: pre-set options or enter your own
-
-if divisible by 4, prompt for pattern of 4 or 8 sts 
-if divisible by 8, prompt for patter of 8 sts
-    also need to ask for & accomodate # of rows in st pattern
-
-ask for short, med, or long leg 
-
-output cuff & leg pattern & recomended inches
-
-heel - hald of main sts, can put in own function?
-    eventually, choice of heel styles
-
-rounded heel
-    total sts/4 + 2 & 1sl
-
-foot(half in pattern, half not) to desired inches
-
-toe
-
--->
-
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -43,7 +16,24 @@ toe
    <link href="sock_styles.css" rel="stylesheet" />
 </head>
 
-<script src="sockcalc.js"></script> 
+<script src="sockcalc.js"></script>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Sock Pattern</title>
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+    <script type="text/javascript">
+        $("#pdfButton").live("click", function () {
+            var divContents = $("#pattern").html();
+            var printWindow = window.open('', '', 'height=400,width=800');
+            printWindow.document.write('<html><head><title>Sock Pattern</title>');
+            printWindow.document.write('</head><body >');
+            printWindow.document.write(divContents);
+            printWindow.document.write('</body></html>');
+            printWindow.document.close();
+        });
+    </script>
+</head> 
 
 <h1>Sock Pattern Builder</h1>
 
@@ -51,15 +41,10 @@ toe
     <p>Welcome to the sock pattern builder. This is a prototype application by a student developer. It is still under construction.</p>
     <p>Here's how to use the program:</p>
     <p>1. Enter the number of stitches you want to cast on</p>
-    <p>2. Enter a pattern (MUST be divisible by the number of cast-on stitches) or pick from the pre-set options</p>
-    <p>3. Choose a single-rib or double-rib cuff</p>
+    <p>2. Choose a single-rib or double-rib cuff</p>
+    <p>3. Choose a pattern</p>
     <p>(coming soon) When you generate your pattern, a pdf will also be saved to your computer so you can re-visit the pattern whenever you like.</p>
 </div>
-
-<h2>Options:</h2>
-
-<button class="chooseOwnPat" id="chooseSetPatID" type="button" onclick="showAndHide()">Choose Pre-Set Stitch</button>
-<button class="chooseOwnPat" id="chooseOwnPatID" type="button" onclick="buildAndShowPattern()">Coming Soon - Enter your own stitch pattern</button>
 
 <div id = "dropDown">
     <form>
@@ -99,6 +84,8 @@ toe
 </div>
 
 <div id="pattern">
+
+    <button id="pdfButton" type="button">Generate PDF</button>
 
     <div id="castOn">    
         <h4 id = castOnOutput></h4>

@@ -68,19 +68,7 @@ function buildCuffPattern()
     }
 }
 
-function showPreSetSts(){
-    document.getElementById("dropDown").style.display = "block";
-}
 
-function hideButtons(){
-    document.getElementById("chooseSetPatID").style.display = "none";
-    document.getElementById("chooseOwnPatID").style.display = "none";
-}
-
-function showAndHide() {
-    showPreSetSts();
-    hideButtons();
-}
 
 function buildLegPattern()
 {
@@ -110,19 +98,18 @@ function buildLegPattern()
 function buildHeelPattern()
 {
     var numOfStitches = document.getElementById("numOfStsSelect").value;
-    document.getElementById("heelStCalc").innerHTML = "<p>Set-up row: k" + (numOfStitches / 2) + " stitches, turn</p>\
-        <p><b>Row One</b>: slip 1 st wyif, k1, *sl1, k1*, repeat from * to *, turn</p>\
-        <p><b>Row Two</b>: slip 1 st wyif, p to end of row, turn</p>";
+    document.getElementById("heelStCalc").innerHTML = "<p><b>Row One</b>: slip 1 st as if to knit, k1, *sl1, k1*, repeat from * to *, turn</p>\
+        <p><b>Row Two</b>: slip 1 st as if to purl, p to end of row, turn</p>";
     document.getElementById("heelRowCalc").innerHTML = "Repeat rows 1 & 2 until heel measures " + (numOfStitches / 2) + " rows total";
 }
 
 function buildheelTurnPattern()
 {
     var numOfStitches = document.getElementById("numOfStsSelect").value;
-    document.getElementById("heelTurn").innerHTML = "<p><b>Row One</b>: slip 1 st wyif, k" + ((numOfStitches / 4) + 2) + ", ssk, k1, turn</p>\
-        <p><b>Row Two</b>: slip 1 st wyif, p7, p2tog, p1, turn</p>\
-        <p><b>Row Three</b>: slip 1 st wyif, k8, ssk, k1, turn</p>\
-        <p><b>Row Four</b>: slip 1 st wyif, p9, p2tog, p1, turn</p>\
+    document.getElementById("heelTurn").innerHTML = "<p><b>Row One</b>: slip 1 st as if to knit, k" + ((numOfStitches / 4) + 2) + ", ssk, k1, turn</p>\
+        <p><b>Row Two</b>: slip 1 st aftp, p7, p2tog, p1, turn</p>\
+        <p><b>Row Three</b>: slip 1 st aftk, k8, ssk, k1, turn</p>\
+        <p><b>Row Four</b>: slip 1 st aftp, p9, p2tog, p1, turn</p>\
         <p>Continue in pattern until all heel sts are on your needles</p>";
 }
 
@@ -131,11 +118,11 @@ function instepPattern()
     var numOfStitches = document.getElementById("numOfStsSelect").value;
     var numOfHeelSts = numOfStitches / 2
     var stsBtwEndOfPtnAndMarker = (numOfHeelSts + ((numOfHeelSts) - (numOfStitches / 4) + 4))
-    document.getElementById("instepOutput").innerHTML = "<p><b>Row One</b>: pick up " + numOfHeelSts / 2 + " stitches from side of heel flap, k" + numOfHeelSts + " IN PATTERN, pick up " + numOfHeelSts / 2 + " from other side of heel flap, k to end of heel turn</p>\
-        <p><b>Row Two</b> (set-up row): k" + ((numOfHeelSts / 2) - 2) + ", ssk, k" + numOfHeelSts + " IN PATTERN, k2tog, k to end of heel turn</p>\
-        <p><b>Row Three</b>: k" + ((numOfHeelSts / 2) - 3) +", k2tog, k" + numOfHeelSts + " IN PATTERN, ssk, k to end of heel turn</p>\
+    document.getElementById("instepOutput").innerHTML = "<p><b>Row One</b>: k to end of heel turn, pick up " + numOfHeelSts / 2 + " stitches from side of heel flap, k" + numOfHeelSts + " IN PATTERN, pick up " + numOfHeelSts / 2 + " from other side of heel flap</p>\
+        <p><b>Row Two</b> (set-up row): k to end of heel turn, k" + ((numOfHeelSts / 2) - 2) + ", ssk, k" + numOfHeelSts + " IN PATTERN, k2tog</p>\
+        <p><b>Row Three</b>: k to end of heel turn, k" + ((numOfHeelSts / 2) - 3) +", k2tog, k" + numOfHeelSts + " IN PATTERN, ssk</p>\
         <p><b>Row Four</b>: k all sts</p>\
-        <p><b>Row Five</b>: k" + ((numOfHeelSts / 2) - 4) +", k2tog, k" + numOfHeelSts + " IN PATTERN, ssk, k to end of heel turn</p>\
+        <p><b>Row Five</b>: k to end of heel turn k" + ((numOfHeelSts / 2) - 4) +", k2tog, k" + numOfHeelSts + " IN PATTERN, ssk, </p>\
         <p><b>Row Six</b>: k all sts</p>\
         <p>Continue in pattern until you once again have " + numOfStitches + " on your needles";
 }
@@ -162,13 +149,6 @@ function toePattern()
         <p><b>Row Seventeen</b>: ssk, k" + ((numOfStitches / 2) - 18) + ", k2tog, ssk, k" + ((numOfStitches / 2) - 18) + ", k2tog</p>\
         <p><b>Row Eightteen</b>: ssk, k" + ((numOfStitches / 2) - 20) + ", k2tog, ssk, k" + ((numOfStitches / 2) - 20) + ", k2tog</p>\
         <p><b>Row Nineteen</b>: ssk, k" + ((numOfStitches / 2) - 22) + ", k2tog, ssk, k" + ((numOfStitches / 2) - 22) + ", k2tog</p>";
-}
-
-function generatePDF() {
-    var finishedPattern = document.getElementById("pattern").value;
-    var blob = new Blob([string(finishedPattern)],
-                { type: "text/plain;charset=utf-8" });
-    saveAs(blob, "/pattern.txt");
 }
 
 function buildSockPattern()
